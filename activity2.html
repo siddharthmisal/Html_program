@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative HTML5 Webpage</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #2196F3);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        nav {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 3px solid #2196F3;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        canvas:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+
+        /* Multimedia Controls */
+        video,
+        audio {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        /* Animation for header */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Creative Styling -->
+    <header>
+        <h1>Creative HTML5 Webpage with Advanced Features</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#multimedia">Multimedia</a>
+        <a href="#canvas">Canvas Graphics</a>
+        <a href="#footer">Footer</a>
+    </nav>
+
+    <!-- Multimedia Section -->
+    <section id="multimedia">
+        <h2>Multimedia Integration</h2>
+        <p>Explore the power of HTML5 in integrating multimedia with video and audio elements.</p>
+
+        <!-- Video with Background Animation -->
+        <h3>HTML5 Video:</h3>
+        <video controls autoplay>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Audio with Hover Effect -->
+        <h3>HTML5 Audio:</h3>
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </section>
+
+    <!-- Interactive Canvas Graphics Section -->
+    <section id="canvas">
+        <h2>Interactive Canvas Graphics</h2>
+        <p>Watch dynamic shapes come to life using JavaScript and the HTML5 canvas.</p>
+
+        <!-- Canvas with Dynamic Animation -->
+        <canvas id="drawingCanvas" width="600" height="400"></canvas>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <p>&copy; 2025 Creative HTML5 Web Development. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactive Canvas -->
+    <script>
+        // Accessing canvas
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Drawing dynamic shapes on the canvas
+        function draw() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw a rotating rectangle
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate((Date.now() % 360) * Math.PI / 180);
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(-75, -50, 150, 100);
+            ctx.restore();
+
+            // Draw a moving circle
+            let time = Date.now();
+            let x = Math.sin(time / 1000) * 150 + canvas.width / 2;
+            let y = Math.cos(time / 1000) * 150 + canvas.height / 2;
+            ctx.beginPath();
+            ctx.arc(x, y, 50, 0, Math.PI * 2, false);
+            ctx.fillStyle = '#2196F3';
+            ctx.fill();
+
+            // Draw a line with animated color
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(550, 350);
+            let gradient = ctx.createLinearGradient(50, 50, 550, 350);
+            gradient.addColorStop(0, '#FF5722');
+            gradient.addColorStop(1, '#FFC107');
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 6;
+            ctx.stroke();
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+
+</html>

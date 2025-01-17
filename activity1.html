@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model and Positioning</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0e0e0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling the container to demonstrate the box model */
+        .container {
+            width: 450px;
+            height: 350px;
+            padding: 30px;
+            border: 6px solid black;
+            /* Changed border color to black */
+            margin: 20px;
+            background: linear-gradient(135deg, #00bcd4, #4caf50);
+            /* Blue-Green gradient */
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            /* Rounded corners */
+            overflow: hidden;
+            /* Ensures nested elements stay inside */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            /* Subtle zoom effect on hover */
+        }
+
+        /* Content inside the container */
+        .content {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
+
+        /* Styled heading */
+        .container h2 {
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Absolute positioning for the nested element (kept at the bottom) */
+        .nested {
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(135deg, #FF5722, #FFC107);
+            /* Orange-Yellow gradient */
+            color: white;
+            text-align: center;
+            line-height: 120px;
+            /* Vertically center text */
+            position: absolute;
+            bottom: 20px;
+            /* Positioning the box at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            /* Centering horizontally */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .nested:hover {
+            transform: translateY(-10px);
+            /* Lift effect on hover */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Container element styled with the box model -->
+    <div class="container">
+        <h2>CSS Box Model</h2>
+        <p class="content">This container demonstrates padding, borders, margin, and positioning.</p>
+        <!-- Nested element with absolute positioning -->
+        <div class="nested">I'm Nested!</div>
+    </div>
+</body>
+
+</html>
