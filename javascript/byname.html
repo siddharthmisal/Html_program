@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>byname</title>
+    <script type="text/javascript">
+        function totalcount()
+        {
+            var count=document.getElementsByName("gender");
+            alert("Total count of gender in form="+count.length)
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="radio" name="gender">Male</input>
+        <input type="radio" name="gender">Female</input><br>
+        <input type="button" onclick="totalcount()" value="submit">
+    </form>
+</body>
+</html>
